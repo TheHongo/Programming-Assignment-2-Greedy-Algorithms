@@ -2,8 +2,8 @@ from algorithms.FIFO import FIFO
 from algorithms.LRU import LRU
 from algorithms.OPTFF import OPTFF
 
-INPUT_DIR = "../tests/in/"
-OUTPUT_DIR = "../tests/out/"
+INPUT_DIR = "../tests/input/"
+OUTPUT_DIR = "../tests/output/"
 
 def runAlgorithms(inputFile, outputFile):
     
@@ -20,11 +20,10 @@ def runAlgorithms(inputFile, outputFile):
     optff = OPTFF(k, idList)
 
     with open(outputFile, 'w') as file:
-        file.write("FIFO:   " + fifo.run() + "\n")
-        file.write("LRU:    " + lru.run() + "\n")
-        file.write("OPTFF:  " + optff.run() + "\n")
+        file.write("FIFO:   " + str(fifo) + "\n")
+        file.write("LRU:    " + str(lru) + "\n")
+        file.write("OPTFF:  " + str(optff) + "\n")
 
-    
 
 def main():
     print("Welcome to the cache eviction policies simulator!")
@@ -33,3 +32,7 @@ def main():
     outputFile = input("Enter the name of the output file: ")
 
     runAlgorithms(INPUT_DIR + inputFile, OUTPUT_DIR + outputFile)
+
+
+if __name__ == "__main__":
+    main()
